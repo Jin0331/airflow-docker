@@ -3,11 +3,12 @@
 ### master
 
 ```
+rm -rf logs/ dags/ plugins/ script/ && mkdir logs/ dags/ plugins/ script/
 docker-compose -f docker-compose.yaml up -d
 ```
 
 ### worker
 
 ```
-docker-compose -f docker-compose-worker.yaml up -d
-```
+rm -rf logs/ dags/ plugins/ script/ && mkdir logs/ dags/ plugins/ script/
+docker-compose -f docker-compose-worker.yaml up
