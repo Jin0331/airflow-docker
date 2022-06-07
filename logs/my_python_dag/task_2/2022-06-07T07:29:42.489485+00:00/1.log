@@ -1,0 +1,59 @@
+[2022-06-07 07:29:43,892] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: my_python_dag.task_2 2022-06-07T07:29:42.489485+00:00 [queued]>
+[2022-06-07 07:29:43,899] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: my_python_dag.task_2 2022-06-07T07:29:42.489485+00:00 [queued]>
+[2022-06-07 07:29:43,899] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-07 07:29:43,899] {taskinstance.py:1068} INFO - Starting attempt 1 of 1
+[2022-06-07 07:29:43,900] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-07 07:29:43,907] {taskinstance.py:1087} INFO - Executing <Task(PythonOperator): task_2> on 2022-06-07T07:29:42.489485+00:00
+[2022-06-07 07:29:43,912] {standard_task_runner.py:52} INFO - Started process 38740 to run task
+[2022-06-07 07:29:43,915] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'my_python_dag', 'task_2', '2022-06-07T07:29:42.489485+00:00', '--job-id', '37', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/test2.py', '--cfg-path', '/tmp/tmpy5ie_abo', '--error-file', '/tmp/tmpt5jybv4p']
+[2022-06-07 07:29:43,915] {standard_task_runner.py:77} INFO - Job 37: Subtask task_2
+[2022-06-07 07:29:44,205] {logging_mixin.py:104} INFO - Running <TaskInstance: my_python_dag.task_2 2022-06-07T07:29:42.489485+00:00 [running]> on host 6e7d0d9f14a6
+[2022-06-07 07:29:44,235] {taskinstance.py:1282} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=jovyan
+AIRFLOW_CTX_DAG_ID=my_python_dag
+AIRFLOW_CTX_TASK_ID=task_2
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-07T07:29:42.489485+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-06-07T07:29:42.489485+00:00
+[2022-06-07 07:29:44,236] {logging_mixin.py:104} INFO - ============================================================
+[2022-06-07 07:29:44,236] {logging_mixin.py:104} INFO - fruit_name: banana
+[2022-06-07 07:29:44,236] {logging_mixin.py:104} INFO - ============================================================
+[2022-06-07 07:29:44,249] {logging_mixin.py:104} INFO - {'conf': <***.configuration.AirflowConfigParser object at 0x7f5843e33d68>,
+ 'dag': <DAG: my_python_dag>,
+ 'dag_run': <DagRun my_python_dag @ 2022-06-07 07:29:42.489485+00:00: manual__2022-06-07T07:29:42.489485+00:00, externally triggered: True>,
+ 'ds': '2022-06-07',
+ 'ds_nodash': '20220607',
+ 'execution_date': DateTime(2022, 6, 7, 7, 29, 42, 489485, tzinfo=Timezone('+00:00')),
+ 'inlets': [],
+ 'macros': <module '***.macros' from '/home/***/.local/lib/python3.6/site-packages/***/macros/__init__.py'>,
+ 'next_ds': '2022-06-07',
+ 'next_ds_nodash': '20220607',
+ 'next_execution_date': DateTime(2022, 6, 7, 7, 29, 42, 489485, tzinfo=Timezone('+00:00')),
+ 'outlets': [],
+ 'params': {},
+ 'prev_ds': '2022-06-07',
+ 'prev_ds_nodash': '20220607',
+ 'prev_execution_date': DateTime(2022, 6, 7, 7, 29, 42, 489485, tzinfo=Timezone('+00:00')),
+ 'prev_execution_date_success': <Proxy at 0x7f5838e63708 with factory <function TaskInstance.get_template_context.<locals>.<lambda> at 0x7f5838dddae8>>,
+ 'prev_start_date_success': <Proxy at 0x7f5838d9a2c8 with factory <function TaskInstance.get_template_context.<locals>.<lambda> at 0x7f5838dd5d08>>,
+ 'run_id': 'manual__2022-06-07T07:29:42.489485+00:00',
+ 'task': <Task(PythonOperator): task_2>,
+ 'task_instance': <TaskInstance: my_python_dag.task_2 2022-06-07T07:29:42.489485+00:00 [running]>,
+ 'task_instance_key_str': 'my_python_dag__task_2__20220607',
+ 'templates_dict': None,
+ 'test_mode': False,
+ 'ti': <TaskInstance: my_python_dag.task_2 2022-06-07T07:29:42.489485+00:00 [running]>,
+ 'tomorrow_ds': '2022-06-08',
+ 'tomorrow_ds_nodash': '20220608',
+ 'ts': '2022-06-07T07:29:42.489485+00:00',
+ 'ts_nodash': '20220607T072942',
+ 'ts_nodash_with_tz': '20220607T072942.489485+0000',
+ 'var': {'json': None, 'value': None},
+ 'yesterday_ds': '2022-06-06',
+ 'yesterday_ds_nodash': '20220606'}
+[2022-06-07 07:29:44,249] {logging_mixin.py:104} INFO - ============================================================
+[2022-06-07 07:29:44,249] {python.py:151} INFO - Done. Returned value was: print complete!!!
+[2022-06-07 07:29:44,261] {taskinstance.py:1191} INFO - Marking task as SUCCESS. dag_id=my_python_dag, task_id=task_2, execution_date=20220607T072942, start_date=20220607T072943, end_date=20220607T072944
+[2022-06-07 07:29:44,275] {taskinstance.py:1245} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-07 07:29:44,366] {local_task_job.py:151} INFO - Task exited with return code 0
