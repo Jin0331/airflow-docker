@@ -7,7 +7,7 @@ from pprint import pprint
 args = {'owner': 'jovyan',
         'start_date': days_ago(n=1)}
 
-dag = DAG(dag_id='my_python_dag',
+dag = DAG(dag_id='my_python_dag_new',
           default_args=args,
           schedule_interval='@daily')
 
