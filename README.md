@@ -19,7 +19,8 @@ chmod -R 777 logs/ dags/ plugins/ script/
 docker-compose -f docker-compose.yaml up -d
 ```
 
-### worker
+### worker - 사용 OS에 따라 NFS 설정방법 다름
+
 
 ```
 mkdir airflow-compose
