@@ -55,6 +55,7 @@ x-airflow-common:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
+    - ./script:/opt/airflow/script
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     redis:
@@ -145,6 +146,15 @@ services:
       timeout: 10s
       retries: 5
     restart: always
+
+  jupyterlab:
+    image: jupyter/base-notebook
+    ports:
+      - "18888:8888"
+    volumes:
+      - ./script:/opt/airflow/script
+      - ./dags:/opt/airflow/dags
+    entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/airflow/script --allow-root'
 
 volumes:
   postgres-db-volume:
