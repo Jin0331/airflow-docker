@@ -5,7 +5,11 @@ from airflow.operators.python_operator import PythonOperator
 import time
 from pprint import pprint
 
-alert = SlackAlert('#targetid', 'xoxb-3489028486288-3638514282484-VhYf69FJJrvEBwew8I3WQu9x')
+# slack token
+with open("SLACK_TOKEN", "r") as f:
+    token = f.readline()
+
+alert = SlackAlert('#airflow_tes', token)
 
 args = {'owner': 'jovyan',
         'start_date': days_ago(n=1),
