@@ -1,11 +1,17 @@
+from utils.alerts import SlackAlert
 from airflow.models import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.python_operator import PythonOperator
 import time
 from pprint import pprint
 
+alert = SlackAlert('#targetid')
+
 args = {'owner': 'jovyan',
-        'start_date': days_ago(n=1)}
+        'start_date': days_ago(n=1),
+        'on_success_callback': alert.slack_success_alert,
+        'on_failure_callback': alert.slack_failure_alert
+        }
 
 dag = DAG(dag_id='my_python_dag_new',
           default_args=args,
