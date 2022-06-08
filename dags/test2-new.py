@@ -6,7 +6,7 @@ import time
 from pprint import pprint
 
 # slack token
-with open("SLACK_TOKEN", "r") as f:
+with open("/opt/airflow/dags/SLACK_TOKEN", "r") as f:
     token = f.readline()
 
 alert = SlackAlert('#airflow_test', token)
