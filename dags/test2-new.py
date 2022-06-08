@@ -6,10 +6,10 @@ import time
 from pprint import pprint
 
 # slack token
-with open("SLACK_TOKEN", "r") as f:
+with open("../SLACK_TOKEN", "r") as f:
     token = f.readline()
 
-alert = SlackAlert('#airflow_tes', token)
+alert = SlackAlert('#airflow_test', token)
 
 args = {'owner': 'jovyan',
         'start_date': days_ago(n=1),
