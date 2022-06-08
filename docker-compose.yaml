@@ -152,6 +152,7 @@ services:
 
   jupyterlab:
     image: jupyter/base-notebook
+    user: root
     ports:
       - "18888:8888"
     volumes:
