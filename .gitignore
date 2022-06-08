@@ -3,6 +3,7 @@ logs/
 plugins/
 script
 dags/__pycache__/
+SLACK_TOKEN
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
