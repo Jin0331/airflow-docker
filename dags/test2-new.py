@@ -9,10 +9,11 @@ from pprint import pprint
 with open("/opt/airflow/dags/SLACK_TOKEN", "r") as f:
     token = f.readline()
 
-alert = SlackAlert('#airflow_test', token)
+alert = SlackAlert('#airflow_alert', token)
 
 args = {'owner': 'jovyan',
         'start_date': days_ago(n=1),
+        'queue': 'multiomics',
         'on_success_callback': alert.success_msg,
         'on_failure_callback': alert.fail_msg
         }
