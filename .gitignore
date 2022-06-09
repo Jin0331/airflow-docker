@@ -1,4 +1,5 @@
 # airflow
+.env
 logs/
 plugins/
 script
