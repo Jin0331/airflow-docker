@@ -62,6 +62,8 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    ports:
+      - 8793:8793
     healthcheck:
       test:
         - "CMD-SHELL"
