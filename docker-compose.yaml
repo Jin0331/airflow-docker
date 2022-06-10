@@ -158,15 +158,13 @@ services:
       retries: 5
     restart: always
 
-  jupyterlab:
-    image: jupyter/base-notebook
-    user: root
+  docker-proxy:
+    image: bobrik/socat
+    command: "TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock"
     ports:
-      - "18888:8888"
+      - "2376:2375"
     volumes:
-      - ./script:/opt/airflow/script
-      - ./dags:/opt/airflow/dags
-    entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/airflow/script --allow-root'
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   postgres-db-volume:
