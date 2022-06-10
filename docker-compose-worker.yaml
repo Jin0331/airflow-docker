@@ -4,21 +4,25 @@ x-airflow-common:
   &airflow-common
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.1.0}
   image: sempre813/airflow-custom:2.1-stable
+  hostname: ${HOSTNAME}
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@192.168.0.5/airflow
-    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@192.168.0.5/airflow
-    AIRFLOW__CELERY__BROKER_URL: redis://:@192.168.0.5:6379/0
-    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CELERY__WORKER_CONCURRENCY: ${CONCURRENCY:-16}
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@${MASTER_HOST}/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@${MASTER_HOST}/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://:@${MASTER_HOST}:6379/0
+    AIRFLOW__CORE__FERNET_KEY: 'Yl0qfUhez3O8cn8gS418WfnAoegsRSIa2oSPwOIc69s='
+    AIRFLOW__WEBSERVER__SECRET_KEY: b'\x13\x9b\xe1~\xab\x01\xa1\x867\xeam\x8d}\x8c\xef<'
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__DEFAULT_TIMEZONE: Asia/Seoul
-    # AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
     AIRFLOW__OPERATORS__DEFAULT_QUEUE: ${QUEUE:-default}
-
-
+  extra_hosts:
+    - "targetid:192.168.0.5"
+    - "wmbio:192.168.0.6"
+    - "macmini:192.168.0.7"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -57,7 +61,6 @@ services:
       interval: 5s
       retries: 5
     restart: always
-
 
   airflow-worker:
     <<: *airflow-common

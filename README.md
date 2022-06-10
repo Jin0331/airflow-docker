@@ -16,6 +16,10 @@ sudo systemctl restart nfs-kernel-server
 
 docker-compose up airflow-init
 docker-compose -f docker-compose.yaml up -d
+
+scp docker-compose* wmbio@192.168.0.6:/home/wmbio/WORK/gitworking/airflow-docker
+scp docker-compose* wmbio@192.168.0.7:/Users/wmbio/Desktop/WORK-MAC/gitworking/airflow-docker
+
 ```
 
 * **DAG** 작성 후 필이 permision 권한 줄 것
