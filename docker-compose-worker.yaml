@@ -27,6 +27,7 @@ x-airflow-common:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
+    - ./data:/opt/airflow/data
   # user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   user: root
   depends_on:
@@ -75,7 +76,7 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    
+
   docker-proxy:
     image: bobrik/socat
     command: "TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock"

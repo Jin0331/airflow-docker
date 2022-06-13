@@ -1,8 +1,9 @@
 # airflow
-.env*
+.env
 #dags/
 logs/
 plugins/
+data/
 script
 SLACK_TOKEN
 
