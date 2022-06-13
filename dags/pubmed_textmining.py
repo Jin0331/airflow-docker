@@ -1,4 +1,4 @@
-from pathlib import Path
+import pendulum
 from utils.alerts import SlackAlert
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.docker_operator import DockerOperator
@@ -41,7 +41,8 @@ def multiple_task(cancer_type):
 
 # DAGs
 args = {'owner': 'Target ID',
-        'start_date': days_ago(n=1),
+        # 'start_date': days_ago(n=1),
+        'start_date': datetime(2022,6, 17, 17),
         'on_success_callback': alert.success_msg,
         'on_failure_callback': alert.fail_msg,
         'queue': 'server2.6'
