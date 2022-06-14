@@ -1,6 +1,6 @@
 # airflow
 .env
-#dags/
+dags/
 logs/
 plugins/
 data/
