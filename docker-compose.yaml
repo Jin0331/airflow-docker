@@ -59,7 +59,7 @@ x-airflow-common:
   extra_hosts:
     - "targetid:192.168.0.5"
     - "wmbio:192.168.0.6"
-    - "macmini:192.168.0.7"
+    - "macmini.local:192.168.0.7"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

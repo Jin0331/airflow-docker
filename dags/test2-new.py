@@ -13,7 +13,7 @@ alert = SlackAlert('#airflow_alert', token)
 
 args = {'owner': 'wmbio',
         'start_date': days_ago(n=1),
-        'queue': 'server2.6',
+        'queue': 'server3.7',
         'on_success_callback': alert.success_msg,
         'on_failure_callback': alert.fail_msg
         }
