@@ -19,10 +19,10 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
     AIRFLOW__OPERATORS__DEFAULT_QUEUE: ${QUEUE:-default}
-  # extra_hosts:
-  #   - "targetid:192.168.0.5"
-  #   - "wmbio:192.168.0.6"
-  #   - "macmini.local:192.168.0.7"
+  extra_hosts:
+    - "targetid:192.168.0.5"
+    - "wmbio:192.168.0.6"
+    - "macmini.local:192.168.0.7"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

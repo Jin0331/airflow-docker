@@ -60,6 +60,7 @@ x-airflow-common:
     - "targetid:192.168.0.5"
     - "wmbio:192.168.0.6"
     - "macmini.local:192.168.0.7"
+    - "DS2419:192.168.0.91"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
